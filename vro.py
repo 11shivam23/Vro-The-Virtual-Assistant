@@ -9,6 +9,7 @@ import random
 import facedetect
 import screenshot
 import weather
+import covid19
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -347,6 +348,9 @@ if __name__=="__main__":
             string=f"temperature in {place} now is {temp}"
             speak(string)
 
+        elif "corona report" in query:
+            speak("Checkout your notification bar")
+            covid19.update()
 
 
 

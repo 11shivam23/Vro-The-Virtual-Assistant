@@ -8,6 +8,7 @@ import smtplib
 import random
 import facedetect
 import screenshot
+import weather
 
 engine = pyttsx3.init('sapi5')
 voices = engine.getProperty('voices')
@@ -339,7 +340,12 @@ if __name__=="__main__":
             speak('Taking screen shot')
             screenshot.screenshot()
 
-
+        elif "temperature" in query:
+            speak('Name the place of which you want to know the temperature')
+            place=takeCommand().lower()
+            temp=weather.temperature(place)
+            string=f"temperature in {place} now is {temp}"
+            speak(string)
 
 
 
